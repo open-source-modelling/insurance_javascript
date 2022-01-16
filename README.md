@@ -1,50 +1,31 @@
-Popular algorithm for interpolating and extrapolating various curves such as bond yields and risk-free rates. This implementation is based on the [Technical documentation of the Methodology to derive EIOPA's risk-free interest rate term structure](https://www.eiopa.europa.eu/sites/default/files/risk_free_interest_rate/12092019-technical_documentation.pdf) (Version published on 12/09/2019. See Section 7).
 
-## Problem
+<h1 align="center" style="border-botom: none">
+  <b>
+   ⚡ Actuarial models in JavaScript ⚡     
+  </b>
+</h1>
 
-When analysing market expectations of future rates, a common approach is to look at fixed income instruments such as government or corporate bonds that mature in the future. In practice, the maturities observable (and liquid) on the market rarely cover all the maturities that are needed.
+</br>
 
-## Solution
+<p align="center">
+  Collection of useful models that actuaries can use to speed up their tasks. 
+</p>
 
-This implementation takes as input the available market information, parameters describing the long-term behaviour of the curve and the data on desired (target) maturities for which the yields are needed.
+## Algorithms avalible
 
-### Market information input
+| Algorithm              | Source                              | Description                                                           |
+| ---------------------- | ----------------------------------- | --------------------------------------------------------------------- |
+| [smith&wilson]         | [Technical-documentation]           | Interpolation and extrapolation of missing interest rates             |
 
- - Observed yields of the zero-coupon bonds (ZCB)
- - Maturity of the observed ZCB
 
-### SW Parameters
- - Ultimate froward rate ufr represents the rate to which the rate curve will converge as time increases.
- - Convergence speed parameter α controls the speed at which the curve converges towards the ufr parameter from the last liquid point (last data point available in the market information input)
+[smith&wilson]: https://github.com/qnity/insurance_javascript/tree/main/smith-wilson
+[Technical-documentation]: https://www.eiopa.europa.eu/sites/default/files/risk_free_interest_rate/12092019-technical_documentation.pdf
 
-### Desired output
- 
- - List of maturities for which the SW algorithm will calculate the yields
+## Algorithms planned
 
-Note that this implementation assumes that the yields were calculated on ZCB. This assumption can be easily relaxed in future releases.
-The implementation is split in two parts: 
+| Algorithm              | Source                              | Description                                                           |
+| ---------------------- | ----------------------------------- | --------------------------------------------------------------------- |
+| TBD                    | TBD                                 | TBD                                                                   |
 
-1. The available market data and the parameters are used to "calibrate" the algorithm. This returns a calibration vector that can be used to interpolate or extrapolate target maturities. This is done by calibrating the kernel functions. Look at the function `SWCalibrate()`
-2. The yields for ZCB with targeted maturities are Interpolated/extrapolated. Look at the function `SWExtrapolate()`
- 
- The syntax in the functions tries to be consistent with EIOPA technical specifications.
- 
- ### Getting started
- 
- Given the data on 6 ZCB with maturities of 1, 2, 4, 5, 6, and 7 years with observed yields 1%, 2%, 3%, 3.2%, 3.5% and 4% respectively. The user is interested in yields for ZCB at maturities 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20 years. The given calibration for the parameter alpha is 0.15 and the ultimate forward rate is 4%. 
-The commands to calculate the target yields would be:
-
-``` javascript
-let M_Obs = [[1], [2], [4], [5], [6], [7]];
-let r_Obs = [[0.01], [0.02], [0.03], [0.032], [0.035], [0.04]];
-
-let ufr = 0.04;
-let alpha = 0.15;
-
-let M_Tar = [[1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [15], [20]];
-
-b = SWCalibrate(r_Obs, M_Obs, ufr, alpha);
-r = SWExtrapolate(M_Tar, M_Obs, b, ufr, alpha);
-console.table(r);
-```
+<b> New suggestions for algorithms are welcome </b>
 
