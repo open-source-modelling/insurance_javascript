@@ -10,22 +10,22 @@ This implementation takes as input the available market information, parameters 
 
 ### Market information input
 
- - Observed yields of the zero-coupon bonds `r_Obs`
- - Maturity of the observed bonds `M_Obs`
+ - Observed yields of the zero-coupon bonds `r_Obs`.
+ - Maturity of the observed bonds `M_Obs`.
 
 ### SW Parameters
  - Ultimate froward rate `ufr` represents the rate to which the rate curve will converge as time increases.
- - Convergence speed parameter `alpha` controls the speed at which the curve converges towards the `ufr` parameter from the last liquid point (last data point available in the market information input)
+ - Convergence speed parameter `alpha` controls the speed at which the curve converges towards the `ufr` parameter from the last liquid point (last data point available in the market information input).
 
 ### Desired output
  
- - List of maturities for which the SW algorithm will calculate the yields `M_Tar`
+ - List of maturities for which the SW algorithm will calculate the yields `M_Tar`.
 
 Note that this implementation assumes that the yields were calculated on ZCB. This assumption can be easily relaxed in future releases.
 The implementation is split in two parts: 
 
-1. The available market data and the parameters are used to "calibrate" the algorithm. This returns a calibration vector that can be used to interpolate or extrapolate target maturities. This is done by calibrating the kernel functions. Look at the function `SWCalibrate()`
-2. The yields for ZCB with targeted maturities are Interpolated/extrapolated. Look at the function `SWExtrapolate()`
+1. The available market data and the parameters are used to "calibrate" the algorithm. This returns a calibration vector that can be used to interpolate or extrapolate target maturities. This is done by calibrating the kernel functions. Look at the function `SWCalibrate()`.
+2. The yields for ZCB with targeted maturities are Interpolated/extrapolated. Look at the function `SWExtrapolate()`.
  
  The syntax in the functions tries to be consistent with EIOPA technical specifications.
  
