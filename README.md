@@ -11,7 +11,7 @@
   Collection of useful models that actuaries can use to speed up their tasks. 
 </p>
 
-## Algorithms avalible
+## Algorithms available
 
 | Algorithm              | Source                              | Description                                                           |
 | ---------------------- | ----------------------------------- | --------------------------------------------------------------------- |
@@ -27,8 +27,8 @@
 | ---------------------- | ----------------------------------- | --------------------------------------------------------------------- |
 | Correlated BM          | TBD                                 | Simple script to generate correlated Brownian motion in 2 dimensions  |
 
-<b> New suggestions for algorithms are welcome </b>
+<b> New suggestions for algorithms are welcome. </b>
 
-<b>If anybody is interested in publishing an algorithm they implemented, or help with the project, contact us and we will make it happen </b>
+<b>If anybody is interested in publishing an algorithm they implemented, or help with the project, contact us and we will make it happen. </b>
 
 Queries and suggestions; gregor@osmodelling.com
