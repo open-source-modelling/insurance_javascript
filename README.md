@@ -25,7 +25,7 @@
 | [smith&wilson]         | [Technical-documentation]           | Interpolation and extrapolation of missing interest rates             |
 
 
-[smith&wilson]: https://github.com/qnity/insurance_javascript/tree/main/smith-wilson
+[smith&wilson]: https://github.com/open-source-modelling/insurance_javascript/tree/main/smith-wilson
 [Technical-documentation]: https://www.eiopa.europa.eu/sites/default/files/risk_free_interest_rate/12092019-technical_documentation.pdf
 
 ## Algorithms planned
